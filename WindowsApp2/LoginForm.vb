@@ -42,5 +42,9 @@ Public Class LoginForm
 
     End Sub
 
+    Private Sub miFile_Click(sender As Object, e As EventArgs) Handles miFile.Click
+        frmQuery.Show()
+    End Sub
+
 
 End Class

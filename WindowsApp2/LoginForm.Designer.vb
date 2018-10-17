@@ -31,7 +31,10 @@ Partial Class LoginForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkShowPass = New System.Windows.Forms.CheckBox()
         Me.TextBoxTest = New System.Windows.Forms.TextBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnConnect
@@ -98,9 +101,9 @@ Partial Class LoginForm
         Me.GroupBox1.Controls.Add(Me.txtPassword)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Controls.Add(Me.btnExit)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(636, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(236, 139)
+        Me.GroupBox1.Size = New System.Drawing.Size(236, 156)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Login"
@@ -117,28 +120,47 @@ Partial Class LoginForm
         '
         'TextBoxTest
         '
-        Me.TextBoxTest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxTest.Location = New System.Drawing.Point(293, 80)
+        Me.TextBoxTest.Location = New System.Drawing.Point(636, 180)
         Me.TextBoxTest.Multiline = True
         Me.TextBoxTest.Name = "TextBoxTest"
         Me.TextBoxTest.ReadOnly = True
         Me.TextBoxTest.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxTest.Size = New System.Drawing.Size(356, 127)
+        Me.TextBoxTest.Size = New System.Drawing.Size(236, 191)
         Me.TextBoxTest.TabIndex = 8
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(872, 24)
+        Me.MenuStrip1.TabIndex = 10
+        Me.MenuStrip1.Text = "msMain"
+        '
+        'miFile
+        '
+        Me.miFile.Name = "miFile"
+        Me.miFile.Size = New System.Drawing.Size(37, 20)
+        Me.miFile.Text = "File"
         '
         'LoginForm
         '
         Me.AcceptButton = Me.btnConnect
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(670, 228)
+        Me.ClientSize = New System.Drawing.Size(872, 539)
         Me.Controls.Add(Me.TextBoxTest)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.IsMdiContainer = True
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "LoginForm"
         Me.ShowIcon = False
         Me.Text = "Training Tool"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -153,4 +175,6 @@ Partial Class LoginForm
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents chkShowPass As CheckBox
     Friend WithEvents TextBoxTest As TextBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents miFile As ToolStripMenuItem
 End Class
