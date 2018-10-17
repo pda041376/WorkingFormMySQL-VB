@@ -12,6 +12,17 @@
         dgvData.DataSource = MySQL.DBTable
     End Sub
 
+    Private Sub LoadCBX()
+        cbxItems.Items.Clear()
+        MySQL.ExecQuery("SELECT DISTINCT data FROM mdl_user_info_data WHERE fieldid=8;")
+
+        If MySQL.HasExeception(True) Then Exit Sub
+        For Each r As DataRow In MySQL.DBTable.Rows
+            cbxItems.Items.Add(r("data").ToString)
+        Next
+
+    End Sub
+
     Private Sub SearchBox()
         MySQL.AddParam("@search", txtSearch.Text & "%")
         LoadGrid("SELECT email, firstname, lastname, id  FROM mdl_user WHERE lastname LIKE @search")
@@ -22,7 +33,7 @@
         MdiParent = LoginForm
         'LoadGrid("SELECT email, lastname, firstname FROM mdl_user WHERE (lastname <> '') ;")
         LoadGrid("select CONCAT (mdl_user.lastname,', ',mdl_user.firstname) AS 'User', mdl_course.fullname AS 'Training Assigned' FROM mdl_user LEFT JOIN mdl_user_enrolments ON mdl_user.id = mdl_user_enrolments.userid LEFT JOIN mdl_enrol ON mdl_user_enrolments.enrolid = mdl_enrol.id LEFT JOIN mdl_course ON mdl_enrol.courseid = mdl_course.id ORDER by mdl_user.id;")
-
+        LoadCBX()
 
     End Sub
 
