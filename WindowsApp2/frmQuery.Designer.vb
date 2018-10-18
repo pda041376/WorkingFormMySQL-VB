@@ -26,6 +26,7 @@ Partial Class frmQuery
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.dgvData = New System.Windows.Forms.DataGridView()
         Me.cbxItems = New System.Windows.Forms.ComboBox()
+        Me.chxSelect = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -53,10 +54,10 @@ Partial Class frmQuery
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chxSelect})
         Me.dgvData.Location = New System.Drawing.Point(12, 41)
         Me.dgvData.Name = "dgvData"
-        Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(450, 270)
+        Me.dgvData.Size = New System.Drawing.Size(631, 358)
         Me.dgvData.TabIndex = 2
         '
         'cbxItems
@@ -68,11 +69,21 @@ Partial Class frmQuery
         Me.cbxItems.Size = New System.Drawing.Size(161, 21)
         Me.cbxItems.TabIndex = 3
         '
+        'chxSelect
+        '
+        Me.chxSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.chxSelect.HeaderText = ""
+        Me.chxSelect.MinimumWidth = 20
+        Me.chxSelect.Name = "chxSelect"
+        Me.chxSelect.ReadOnly = True
+        Me.chxSelect.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.chxSelect.Width = 20
+        '
         'frmQuery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(471, 320)
+        Me.ClientSize = New System.Drawing.Size(652, 408)
         Me.Controls.Add(Me.cbxItems)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.txtSearch)
@@ -89,4 +100,5 @@ Partial Class frmQuery
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents dgvData As DataGridView
     Friend WithEvents cbxItems As ComboBox
+    Friend WithEvents chxSelect As DataGridViewCheckBoxColumn
 End Class

@@ -4,6 +4,7 @@ Public Class LoginForm
 
     Dim connection As New MySqlConnection("server=192.168.20.106;username=root;password=RT10@gne;database=moodle;Sslmode=none")
 
+
     Private Sub chkShowPass_CheckedChanged(sender As Object, e As EventArgs) Handles chkShowPass.CheckedChanged
 
         If txtPassword.UseSystemPasswordChar = True Then
@@ -13,7 +14,7 @@ Public Class LoginForm
         Else
             txtPassword.UseSystemPasswordChar = True
         End If
-
+        connection.Open()
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
