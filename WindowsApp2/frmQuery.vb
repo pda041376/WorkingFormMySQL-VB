@@ -3,7 +3,7 @@
 
     Public Sub LoadGrid(Optional Query As String = "")
         If Query = "" Then
-            MySQL.ExecQuery("SELECT * FROM mdl_user;")
+            MySQL.ExecQuery("SELECT lastname, firstname, email FROM mdl_user;")
 
         Else
             MySQL.ExecQuery(Query)
@@ -14,7 +14,10 @@
 
     Private Sub LoadCBX()
         cbxItems.Items.Clear()
-        MySQL.ExecQuery("SELECT DISTINCT data FROM mdl_user_info_data WHERE fieldid=8;")
+        MySQL.ExecQuery("SELECT DISTINCT data 
+                        FROM mdl_user_info_data 
+                        WHERE fieldid=8 AND (data <> '') 
+                        ORDER by data;")
 
         If MySQL.HasExeception(True) Then Exit Sub
         For Each r As DataRow In MySQL.DBTable.Rows
@@ -25,7 +28,16 @@
 
     Private Sub SearchBox()
         MySQL.AddParam("@search", txtSearch.Text & "%")
-        LoadGrid("SELECT email, firstname, lastname, id  FROM mdl_user WHERE lastname LIKE @search")
+        LoadGrid("SELECT lastname, firstname, email FROM mdl_user 
+                  WHERE lastname LIKE @search AND 
+                 (lastname <> ' ') AND
+                 (email <> 'novalid@p2s.com') AND
+                 (firstname <> 'admin') AND
+                 (lastname <> 'admin') AND
+                 (firstname <> 'test') AND
+                 (lastname <> 'test') AND
+                 email LIKE '%@p2s.com'
+                 ORDER by lastname;")
     End Sub
 
 
@@ -46,6 +58,5 @@
     Private Sub cmdSearch_Click(sender As Object, e As EventArgs) Handles cmdSearch.Click
         SearchBox()
     End Sub
-
 
 End Class

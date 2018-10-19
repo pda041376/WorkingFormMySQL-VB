@@ -33,6 +33,10 @@ Partial Class LoginForm
         Me.TextBoxTest = New System.Windows.Forms.TextBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiNewGroup = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiDeleteGroup = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiViewGroup = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -130,7 +134,7 @@ Partial Class LoginForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.GroupsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(872, 24)
@@ -143,11 +147,37 @@ Partial Class LoginForm
         Me.miFile.Size = New System.Drawing.Size(37, 20)
         Me.miFile.Text = "File"
         '
+        'GroupsToolStripMenuItem
+        '
+        Me.GroupsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiNewGroup, Me.msiDeleteGroup, Me.msiViewGroup})
+        Me.GroupsToolStripMenuItem.Name = "GroupsToolStripMenuItem"
+        Me.GroupsToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.GroupsToolStripMenuItem.Text = "Groups"
+        '
+        'msiNewGroup
+        '
+        Me.msiNewGroup.Name = "msiNewGroup"
+        Me.msiNewGroup.Size = New System.Drawing.Size(143, 22)
+        Me.msiNewGroup.Text = "New Group"
+        '
+        'msiDeleteGroup
+        '
+        Me.msiDeleteGroup.Name = "msiDeleteGroup"
+        Me.msiDeleteGroup.Size = New System.Drawing.Size(143, 22)
+        Me.msiDeleteGroup.Text = "Delete Group"
+        '
+        'msiViewGroup
+        '
+        Me.msiViewGroup.Name = "msiViewGroup"
+        Me.msiViewGroup.Size = New System.Drawing.Size(143, 22)
+        Me.msiViewGroup.Text = "View Group"
+        '
         'LoginForm
         '
         Me.AcceptButton = Me.btnConnect
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.Disable
         Me.ClientSize = New System.Drawing.Size(872, 539)
         Me.Controls.Add(Me.TextBoxTest)
         Me.Controls.Add(Me.GroupBox1)
@@ -156,6 +186,7 @@ Partial Class LoginForm
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "LoginForm"
         Me.ShowIcon = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Training Tool"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -177,4 +208,8 @@ Partial Class LoginForm
     Friend WithEvents TextBoxTest As TextBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents miFile As ToolStripMenuItem
+    Friend WithEvents GroupsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents msiNewGroup As ToolStripMenuItem
+    Friend WithEvents msiDeleteGroup As ToolStripMenuItem
+    Friend WithEvents msiViewGroup As ToolStripMenuItem
 End Class

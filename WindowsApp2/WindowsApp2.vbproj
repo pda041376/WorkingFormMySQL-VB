@@ -81,6 +81,12 @@
     <Compile Include="frmQuery.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NewGroup.Designer.vb">
+      <DependentUpon>NewGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LoginForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewGroup.resx">
+      <DependentUpon>NewGroup.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

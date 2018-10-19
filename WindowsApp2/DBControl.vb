@@ -4,6 +4,7 @@ Public Class DBControl
     Private DBCon As New MySqlConnection("server=192.168.20.106;username=root;password=RT10@gne;database=moodle;Sslmode=none")
     Private DBCmd As MySqlCommand
 
+
     Public DBDA As MySqlDataAdapter
     Public DBTable As DataTable
     Public Params As New List(Of MySqlParameter)
