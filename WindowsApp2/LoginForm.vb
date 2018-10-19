@@ -35,7 +35,10 @@ Public Class LoginForm
 
         If table.Rows.Count >= 1 Then
             MsgBox("Connected")
-
+            Dim AuthUser As String
+            AuthUser = txtUsername.Text
+            GroupBox1.Hide()
+            txtConnected.Text = AuthUser
         Else
             MsgBox("Not connected")
         End If
@@ -47,5 +50,7 @@ Public Class LoginForm
         frmQuery.Show()
     End Sub
 
-
+    Private Sub btnDisconnect_Click(sender As Object, e As EventArgs) Handles btnDisconnect.Click
+        Me.Close()
+    End Sub
 End Class
