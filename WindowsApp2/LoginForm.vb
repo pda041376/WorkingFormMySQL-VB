@@ -34,23 +34,30 @@ Public Class LoginForm
 
 
         If table.Rows.Count >= 1 Then
-            MsgBox("Connected")
+            ' MsgBox("Connected")
             Dim AuthUser As String
             AuthUser = txtUsername.Text
             GroupBox1.Hide()
-            txtConnected.Text = AuthUser
+            miFile.Visible = True
+            miGroups.Visible = True
+            miConnectLabel.Visible = True
+            miTextBox.Text = AuthUser
         Else
-            MsgBox("Not connected")
+            MessageBox.Show("Incorrect Username or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+
+
         End If
 
 
     End Sub
 
+
+
     Private Sub miFile_Click(sender As Object, e As EventArgs) Handles miFile.Click
         frmQuery.Show()
     End Sub
 
-    Private Sub btnDisconnect_Click(sender As Object, e As EventArgs) Handles btnDisconnect.Click
+    Private Sub btnDisconnect_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 End Class

@@ -32,17 +32,15 @@ Partial Class LoginForm
         Me.chkShowPass = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GroupsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miGroups = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiNewGroup = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiDeleteGroup = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiViewGroup = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.miTextBox = New System.Windows.Forms.ToolStripTextBox()
+        Me.miConnectLabel = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtConnected = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnDisconnect = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnConnect
@@ -109,7 +107,8 @@ Partial Class LoginForm
         Me.GroupBox1.Controls.Add(Me.txtPassword)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Controls.Add(Me.btnExit)
-        Me.GroupBox1.Location = New System.Drawing.Point(636, 27)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Location = New System.Drawing.Point(316, 188)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(236, 125)
         Me.GroupBox1.TabIndex = 6
@@ -128,7 +127,8 @@ Partial Class LoginForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.GroupsToolStripMenuItem})
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.miGroups, Me.miTextBox, Me.miConnectLabel})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(872, 24)
@@ -140,70 +140,58 @@ Partial Class LoginForm
         Me.miFile.Name = "miFile"
         Me.miFile.Size = New System.Drawing.Size(37, 20)
         Me.miFile.Text = "File"
+        Me.miFile.Visible = False
         '
-        'GroupsToolStripMenuItem
+        'miGroups
         '
-        Me.GroupsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiNewGroup, Me.msiDeleteGroup, Me.msiViewGroup})
-        Me.GroupsToolStripMenuItem.Name = "GroupsToolStripMenuItem"
-        Me.GroupsToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.GroupsToolStripMenuItem.Text = "Groups"
+        Me.miGroups.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiNewGroup, Me.msiDeleteGroup, Me.msiViewGroup})
+        Me.miGroups.Name = "miGroups"
+        Me.miGroups.Size = New System.Drawing.Size(57, 20)
+        Me.miGroups.Text = "Groups"
+        Me.miGroups.Visible = False
         '
         'msiNewGroup
         '
         Me.msiNewGroup.Name = "msiNewGroup"
-        Me.msiNewGroup.Size = New System.Drawing.Size(143, 22)
+        Me.msiNewGroup.Size = New System.Drawing.Size(180, 22)
         Me.msiNewGroup.Text = "New Group"
         '
         'msiDeleteGroup
         '
         Me.msiDeleteGroup.Name = "msiDeleteGroup"
-        Me.msiDeleteGroup.Size = New System.Drawing.Size(143, 22)
+        Me.msiDeleteGroup.Size = New System.Drawing.Size(180, 22)
         Me.msiDeleteGroup.Text = "Delete Group"
         '
         'msiViewGroup
         '
         Me.msiViewGroup.Name = "msiViewGroup"
-        Me.msiViewGroup.Size = New System.Drawing.Size(143, 22)
+        Me.msiViewGroup.Size = New System.Drawing.Size(180, 22)
         Me.msiViewGroup.Text = "View Group"
         '
-        'GroupBox2
+        'miTextBox
         '
-        Me.GroupBox2.Controls.Add(Me.btnDisconnect)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.txtConnected)
-        Me.GroupBox2.Location = New System.Drawing.Point(636, 27)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(236, 125)
-        Me.GroupBox2.TabIndex = 12
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Login"
+        Me.miTextBox.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.miTextBox.BackColor = System.Drawing.SystemColors.Control
+        Me.miTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.miTextBox.Name = "miTextBox"
+        Me.miTextBox.ReadOnly = True
+        Me.miTextBox.Size = New System.Drawing.Size(100, 20)
+        '
+        'miConnectLabel
+        '
+        Me.miConnectLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.miConnectLabel.Name = "miConnectLabel"
+        Me.miConnectLabel.Size = New System.Drawing.Size(96, 20)
+        Me.miConnectLabel.Text = "Connected As:"
+        Me.miConnectLabel.Visible = False
         '
         'txtConnected
         '
         Me.txtConnected.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtConnected.Location = New System.Drawing.Point(84, 36)
+        Me.txtConnected.Location = New System.Drawing.Point(714, 8)
         Me.txtConnected.Name = "txtConnected"
-        Me.txtConnected.ReadOnly = True
         Me.txtConnected.Size = New System.Drawing.Size(146, 13)
         Me.txtConnected.TabIndex = 0
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 36)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Connected As:"
-        '
-        'btnDisconnect
-        '
-        Me.btnDisconnect.Location = New System.Drawing.Point(43, 72)
-        Me.btnDisconnect.Name = "btnDisconnect"
-        Me.btnDisconnect.Size = New System.Drawing.Size(136, 23)
-        Me.btnDisconnect.TabIndex = 2
-        Me.btnDisconnect.Text = "Disconnect"
-        Me.btnDisconnect.UseVisualStyleBackColor = True
         '
         'LoginForm
         '
@@ -211,10 +199,11 @@ Partial Class LoginForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.Disable
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(872, 539)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.txtConnected)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "LoginForm"
@@ -225,8 +214,6 @@ Partial Class LoginForm
         Me.GroupBox1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -242,12 +229,11 @@ Partial Class LoginForm
     Friend WithEvents chkShowPass As CheckBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents miFile As ToolStripMenuItem
-    Friend WithEvents GroupsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents miGroups As ToolStripMenuItem
     Friend WithEvents msiNewGroup As ToolStripMenuItem
     Friend WithEvents msiDeleteGroup As ToolStripMenuItem
     Friend WithEvents msiViewGroup As ToolStripMenuItem
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents txtConnected As TextBox
-    Friend WithEvents btnDisconnect As Button
+    Friend WithEvents miTextBox As ToolStripTextBox
+    Friend WithEvents miConnectLabel As ToolStripMenuItem
 End Class
