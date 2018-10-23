@@ -20,9 +20,11 @@
                         ORDER by data;")
 
         If MySQL.HasExeception(True) Then Exit Sub
+
         For Each r As DataRow In MySQL.DBTable.Rows
             cbxItems.Items.Add(r("data").ToString)
         Next
+
 
     End Sub
 
@@ -55,9 +57,7 @@
 
     End Sub
 
-    Private Sub 
 
-    End Sub
 
     Private Sub cmdSearch_Click(sender As Object, e As EventArgs) Handles cmdSearch.Click
         SearchBox()
