@@ -83,9 +83,11 @@
     </Compile>
     <Compile Include="NewGroup.Designer.vb">
       <DependentUpon>NewGroup.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="NewGroup.vb">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="LoginForm.vb">
       <SubType>Form</SubType>
@@ -125,6 +127,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewGroup.resx">
       <DependentUpon>NewGroup.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
