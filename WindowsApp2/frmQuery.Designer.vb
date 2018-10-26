@@ -27,6 +27,7 @@ Partial Class frmQuery
         Me.dgvData = New System.Windows.Forms.DataGridView()
         Me.chxSelect = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.cbxItems = New System.Windows.Forms.ComboBox()
+        Me.chkCompleted = New System.Windows.Forms.CheckBox()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -79,12 +80,23 @@ Partial Class frmQuery
         Me.cbxItems.Size = New System.Drawing.Size(161, 21)
         Me.cbxItems.TabIndex = 3
         '
+        'chkCompleted
+        '
+        Me.chkCompleted.AutoSize = True
+        Me.chkCompleted.Location = New System.Drawing.Point(9, 54)
+        Me.chkCompleted.Name = "chkCompleted"
+        Me.chkCompleted.Size = New System.Drawing.Size(110, 17)
+        Me.chkCompleted.TabIndex = 4
+        Me.chkCompleted.Text = "Check Completed"
+        Me.chkCompleted.UseVisualStyleBackColor = True
+        '
         'frmQuery
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(546, 408)
+        Me.Controls.Add(Me.chkCompleted)
         Me.Controls.Add(Me.cbxItems)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.txtSearch)
@@ -105,4 +117,5 @@ Partial Class frmQuery
     Friend WithEvents dgvData As DataGridView
     Friend WithEvents cbxItems As ComboBox
     Friend WithEvents chxSelect As DataGridViewCheckBoxColumn
+    Friend WithEvents chkCompleted As CheckBox
 End Class

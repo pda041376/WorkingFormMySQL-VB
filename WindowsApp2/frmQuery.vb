@@ -66,8 +66,25 @@
 
     Private Sub cbxItems_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxItems.SelectedIndexChanged
         MdiParent = LoginForm
-        LoadGrid("SELECT CONCAT (mdl_user.lastname,', ',mdl_user.firstname) AS 'User',
-                  mdl_course.fullname AS 'Training Assigned' 
+        Dim chosen As String = ""
+        chosen = cbxItems.SelectedIndex.ToString()
+
+        If chkCompleted.Checked Then
+            LoadGrid("SELECT CONCAT (mdl_user.lastname,', ',mdl_user.firstname) AS 'User',
+                  mdl_course.fullname AS 'Training Assigned',
+                  from_unixtime(mdl_course_completions.timecompleted, '%M %D, %Y') AS 'Completed'
+                  FROM mdl_user 
+                  LEFT JOIN mdl_user_enrolments ON mdl_user.id = mdl_user_enrolments.userid 
+                  LEFT JOIN mdl_enrol ON mdl_user_enrolments.enrolid = mdl_enrol.id 
+                  LEFT JOIN mdl_course ON mdl_enrol.courseid = mdl_course.id
+                  LEFT JOIN mdl_user_info_data ON mdl_user.id = mdl_user_info_data.userid
+                  LEFT JOIN mdl_course_completions ON mdl_user.id = mdl_course_completions.userid
+                  WHERE mdl_user_info_data.data='" & cbxItems.Text & "'  
+                  ORDER by User;")
+            LoadCBX()
+        Else
+            LoadGrid("SELECT CONCAT (mdl_user.lastname,', ',mdl_user.firstname) AS 'User',
+                  mdl_course.fullname AS 'Training Assigned'
                   FROM mdl_user 
                   LEFT JOIN mdl_user_enrolments ON mdl_user.id = mdl_user_enrolments.userid 
                   LEFT JOIN mdl_enrol ON mdl_user_enrolments.enrolid = mdl_enrol.id 
@@ -75,7 +92,10 @@
                   LEFT JOIN mdl_user_info_data ON mdl_user.id = mdl_user_info_data.userid
                   WHERE mdl_user_info_data.data='" & cbxItems.Text & "'  
                   ORDER by User;")
-        LoadCBX()
+            LoadCBX()
+        End If
 
     End Sub
+
+
 End Class
